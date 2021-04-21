@@ -9,7 +9,7 @@ class AppHomeWindow(GridLayout):
        super(AppHomeWindow, self).__init__(**kwargs)
 
        # New functionality
-       self.rows = 3
+       self.cols = 2
        #Define SOS button/functionality
        sos_btn = Button(text='SOS text')
        sos_btn.bind(on_press = self.sos_fun)
@@ -34,6 +34,22 @@ class AppHomeWindow(GridLayout):
        contact_info_btn = Button(text='Contact Information')
        contact_info_btn.bind(on_press=self.contact_info_fun)
        self.add_widget(contact_info_btn)
+       # Define first aid button/functionality
+       first_aid_btn = Button(text='First Aid')
+       first_aid_btn.bind(on_press=self.first_aid_fun)
+       self.add_widget(first_aid_btn)
+       # Define severe weather button/functionality
+       weather_btn = Button(text='Severe Weather')
+       weather_btn.bind(on_press=self.weather_fun)
+       self.add_widget(weather_btn)
+       # Define stranger danger button/functionality
+       stranger_btn = Button(text='Stranger Danger')
+       stranger_btn.bind(on_press=self.stranger_fun)
+       self.add_widget(stranger_btn)
+       # Define parental control button/functionality
+       parent_btn = Button(text='Parental Control')
+       parent_btn.bind(on_press=self.parent_fun)
+       self.add_widget(parent_btn)
 
    def sos_fun(self, event):
        print("button pressed, SOS")
@@ -52,6 +68,18 @@ class AppHomeWindow(GridLayout):
 
    def contact_info_fun(self, event):
        print("button pressed, contact info")
+
+   def first_aid_fun(self, event):
+       print("button pressed, first aid")
+
+   def weather_fun(self, event):
+       print("button pressed, severe weather")
+
+   def stranger_fun(self, event):
+       print("button pressed, stranger danger")
+
+   def parent_fun(self, event):
+       print("button pressed, parental control")
 
 class KidSafeApp(App):
    def build(self):
