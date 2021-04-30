@@ -1,7 +1,206 @@
 from kivymd.app import MDApp
-from kivymd.uix.screen import Screen
-from kivymd.uix.gridlayout import MDGridLayout
-from kivymd.uix.button import Button
+from kivy.lang import Builder
+from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.core.window import Window
+
+#Window.size = (300,500)
+
+screen_helper = """
+ScreenManager:
+    HomeScreen:
+    NOOScreen:
+    SOSScreen:
+    FireScreen:
+    FirstAidScreen:
+    StrangerScreen:
+    WeatherScreen:
+    PowerOutScreen:
+    LockedOutScreen:
+    ContactInfoScreen:
+    ParentScreen:
+    
+
+<HomeScreen>:
+    name: "home"
+    MDGridLayout:
+        cols: 2
+        Button:
+            text: "911"
+            on_press: root.manager.current = "noo"
+        Button:
+            text: "SOS Text"
+            on_press: root.manager.current = "sos"
+        Button:
+            text: "Fire"
+            on_press: root.manager.current = "fire"
+        Button:
+            text: "First Aid"
+            on_press: root.manager.current = "first_aid"
+        Button:
+            text: "Stranger Danger"
+            on_press: root.manager.current = "stranger"
+        Button:
+            text: "Severe Weather"
+            on_press: root.manager.current = "weather"
+        Button:
+            text: "Power Outage"
+            on_press: root.manager.current = "power_out"
+        Button:
+            text: "Locked Out"
+            on_press: root.manager.current = "locked_out"
+        Button:
+            text: "Contact Information"
+            on_press: root.manager.current = "contact_info"
+        Button:
+            text: "Parental Control"
+            on_press: root.manager.current = "parent"
+
+<NOOScreen>:
+    name: "noo"
+    MDLabel:
+        text: "Calling 911..."
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+
+<SOSScreen>:
+    name: "sos"
+    MDLabel:
+        text: "Calling SOS Contacts..."
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<FireScreen>:
+    name: "fire"
+    MDLabel:
+        text: "Fire info"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<FirstAidScreen>:
+    name: "first_aid"
+    MDLabel:
+        text: "First aid info"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<StrangerScreen>:
+    name: "stranger"
+    MDLabel:
+        text: "Stranger Danger!"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<WeatherScreen>:
+    name: "weather"
+    MDLabel:
+        text: "Severe weather info"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<PowerOutScreen>:
+    name: "power_out"
+    MDLabel:
+        text: "Power out info"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<LockedOutScreen>:
+    name: "locked_out"
+    MDLabel:
+        text: "Locked out info"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<ContactInfoScreen>:
+    name: "contact_info"
+    MDLabel:
+        text: "Enter contact info here"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+        
+<ParentScreen>:
+    name: "parent"
+    MDLabel:
+        text: "Set parent credentials here"
+        halign: "center"
+    MDRectangleFlatButton:
+        text: "Back"
+        pos_hint: {"center_x":0.5, "center_y":0.2}
+        on_press: root.manager.current = "home"
+"""
+
+class NOOScreen(Screen):
+    pass
+
+class SOSScreen(Screen):
+    pass
+
+class FireScreen(Screen):
+    pass
+
+class FirstAidScreen(Screen):
+    pass
+
+class StrangerScreen(Screen):
+    pass
+
+class WeatherScreen(Screen):
+    pass
+
+class PowerOutScreen(Screen):
+    pass
+
+class LockedOutScreen(Screen):
+    pass
+
+class ContactInfoScreen(Screen):
+    pass
+
+class ParentScreen(Screen):
+    pass
+
+class HomeScreen(Screen):
+    pass
+
+sm = ScreenManager()
+sm.add_widget(HomeScreen(name="home"))
+sm.add_widget(NOOScreen(name="noo"))
+sm.add_widget(SOSScreen(name="sos"))
+sm.add_widget(FireScreen(name="fire"))
+sm.add_widget(FirstAidScreen(name="first_aid"))
+sm.add_widget(StrangerScreen(name="stranger"))
+sm.add_widget(WeatherScreen(name="weather"))
+sm.add_widget(PowerOutScreen(name="power_out"))
+sm.add_widget(LockedOutScreen(name="locked_out"))
+sm.add_widget(ContactInfoScreen(name="contact_info"))
+sm.add_widget(ParentScreen(name="parent"))
 
 class KidSafeApp(MDApp):
    def build(self):
@@ -9,72 +208,9 @@ class KidSafeApp(MDApp):
        self.theme_cls.primary_hue = "A700"
        self.theme_cls.theme_style = "Dark"
 
-       screen = Screen()
-       btn_grid = MDGridLayout(cols=2)
-       screen.add_widget(btn_grid)
-
-       # Define 911 button/functionality
-       noo_btn = Button(text='911', on_press=self.noo_fun)
-       btn_grid.add_widget(noo_btn)
-       # Define SOS button/functionality
-       sos_btn = Button(text='SOS text', on_press=self.sos_fun)
-       btn_grid.add_widget(sos_btn)
-       # Define fire button/functionality
-       fire_btn = Button(text='Fire', on_press=self.fire_fun)
-       btn_grid.add_widget(fire_btn)
-       # Define first aid button/functionality
-       first_aid_btn = Button(text='First Aid', on_press=self.first_aid_fun)
-       btn_grid.add_widget(first_aid_btn)
-       # Define stranger danger button/functionality
-       stranger_btn = Button(text='Stranger Danger', on_press=self.stranger_fun)
-       btn_grid.add_widget(stranger_btn)
-       # Define severe weather button/functionality
-       weather_btn = Button(text='Severe Weather', on_press=self.weather_fun)
-       btn_grid.add_widget(weather_btn)
-       # Define power out button/functionality
-       power_out_btn = Button(text='Power Outage', on_press=self.power_out_fun)
-       btn_grid.add_widget(power_out_btn)
-       # Define locked out button/functionality
-       locked_out_btn = Button(text='Locked Out', on_press=self.locked_out_fun)
-       btn_grid.add_widget(locked_out_btn)
-       # Define contact info button/functionality
-       contact_info_btn = Button(text='Contact Information', on_press=self.contact_info_fun)
-       btn_grid.add_widget(contact_info_btn)
-       # Define parental control button/functionality
-       parent_btn = Button(text='Parental Control', on_press=self.parent_fun)
-       btn_grid.add_widget(parent_btn)
-
+       screen = Builder.load_string(screen_helper)
        return screen
 
 
-   def noo_fun(self, event):
-       print("button pressed, 911")
-
-   def sos_fun(self, event):
-       print("button pressed, SOS")
-
-   def fire_fun(self, event):
-       print("button pressed, fire")
-
-   def first_aid_fun(self, event):
-       print("button pressed, first aid")
-
-   def stranger_fun(self, event):
-       print("button pressed, stranger danger")
-
-   def weather_fun(self, event):
-       print("button pressed, severe weather")
-
-   def power_out_fun(self, event):
-       print("button pressed, power out")
-
-   def locked_out_fun(self, event):
-       print("button pressed, locked out")
-
-   def contact_info_fun(self, event):
-       print("button pressed, contact info")
-
-   def parent_fun(self, event):
-       print("button pressed, parental control")
 
 KidSafeApp().run()
