@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 from helpers import screen_helper
 from kivy.core.window import Window
+from kivy.uix.image import Image
 
 #Window.size = (300,500)
 

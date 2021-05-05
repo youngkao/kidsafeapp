@@ -18,28 +18,36 @@ ScreenManager:
     MDGridLayout:
         cols: 2
         Button:
-            text: "911"
+            #text: "911"
+            background_normal: 'resources/911.png'
             on_press: root.manager.current = "noo"
         Button:
-            text: "SOS Text"
+            #text: "SOS Text"
+            background_normal: 'resources/help.png'
             on_press: root.manager.current = "sos"
         Button:
-            text: "Fire"
+            #text: "Fire"
+            background_normal: 'resources/fire.png'
             on_press: root.manager.current = "fire"
         Button:
-            text: "First Aid"
+            #text: "First Aid"
+            background_normal: 'resources/firstaid.png'
             on_press: root.manager.current = "first_aid"
         Button:
-            text: "Stranger Danger"
+            #text: "Stranger Danger"
+            background_normal: 'resources/strangerdanger.png'
             on_press: root.manager.current = "stranger"
         Button:
-            text: "Severe Weather"
+            #text: "Severe Weather"
+            background_normal: 'resources/weather.png'
             on_press: root.manager.current = "weather"
         Button:
-            text: "Power Outage"
+            #text: "Power Outage"
+            background_normal: 'resources/powerout.png'
             on_press: root.manager.current = "power_out"
         Button:
-            text: "Locked Out"
+            #text: "Locked Out"
+            background_normal: 'resources/lockedout.png'
             on_press: root.manager.current = "locked_out"
         Button:
             text: "Contact Information"
